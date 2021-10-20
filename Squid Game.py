@@ -14,7 +14,7 @@ class Pencere(QWidget):
         super().__init__()
         PlaySound('Data/a.wav', SND_ASYNC)
         self.Ana_Sayfa()
-        self.list = [['Semsiye.png', 'Şemsiye', 3000, False, (0, 0, 0), 0.650],['Yuvarlak.png', 'Yuvarlak', 3000, False, (0, 0, 0), 0.650],['Ucgen.png', 'Üçgen', 3000, False, (0, 0, 0), 0.650],['Yildiz.png', 'Yıldız', 3000, False, (0, 0, 0), 0.650],['Kucuk_Ucgen.png', '', 0, True, (0, 255, 0), 0.551]]
+        self.list = [['Semsiye.png', 'Şemsiye', 3000, False, (255, 0, 0), 0.650],['Yuvarlak.png', 'Yuvarlak', 3000, False, (0, 255, 0), 0.650],['Ucgen.png', 'Üçgen', 3000, False, (0, 0, 255), 0.650],['Yildiz.png', 'Yıldız', 3000, False, (0, 255, 255), 0.650],['Kucuk_Ucgen.png', '', 0, True, (255, 255, 0), 0.551]]
 
     def Ana_Sayfa(self):
         oImage = QImage('Data/a.jpg')
@@ -62,7 +62,7 @@ class Pencere(QWidget):
         resim_pil =Image.fromarray(self.resim_rgb)
         ciz =ImageDraw.Draw(resim_pil)
         font=ImageFont.truetype(font='Data/CenturyGothic.ttf',size=32)
-        ciz.text((self.w-107, self.h),f"{Nesne_isim}",font=font,fill=(255, 0, 0))
+        ciz.text((self.w-107, self.h),f"{Nesne_isim}",font=font,fill=renk)
         self.resim_rgb =np.array(resim_pil)
         cv2.imshow('Squid Game', self.resim_rgb)
         cv2.waitKey(Zaman)
